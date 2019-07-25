@@ -1,0 +1,58 @@
+#scorecards {
+}
+
+#scorecards header {
+  color: white;
+  background-color: cornflowerblue;
+}
+
+#scorecards h2 {
+  padding: 5px 0;
+  margin: 0;
+  background-color: lightskyblue;
+}
+
+#scorecards .scorecard {
+  overflow: scroll;
+  padding: 5px 0;
+  background-color: aliceblue;
+}
+
+#scorecards .scorecard .scorecard-panel {
+  padding: 5px 0;
+  overflow: scroll;
+}
+
+#scorecards table {
+  table-layout: fixed;
+  width: 500px;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+#scorecards thead th {
+  border-bottom: 1px solid #dddddd;
+}
+
+#scorecards thead th,
+#scorecards tbody td {
+  width: 30px;
+  padding: 5px 5px;
+}
+
+#scorecards tr:first-child {
+  color: #bbb;
+  font-weight: bold;
+}
+
+#scorecards th:nth-child(1),
+#scorecards td:nth-child(1) {
+  width: 50px;
+  text-align: left;
+}
+
+#scorecards thead th:last-child,
+#scorecards tbody td:last-child {
+  width: 50px;
+  text-align: right;
+}

@@ -9,9 +9,6 @@ class Scorecards extends Component {
   render() {
     return (
       <div id="scorecards">
-        <header>
-          <h1>Scorecards</h1>
-        </header>
         {scores
           .get("rounds")
           .map((round, key) => (

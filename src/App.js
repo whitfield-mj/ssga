@@ -4,9 +4,13 @@ import Scorecards from "./scorecards/Scorecards";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">SSGA</header>
-      <Scorecards />
+    <div id="app">
+      <header id="app-header">
+        <h1>SSGA</h1>
+      </header>
+      <div id="main-content">
+        <Scorecards />
+      </div>
     </div>
   );
 }

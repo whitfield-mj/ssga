@@ -13,26 +13,25 @@
 }
 
 #scorecards .scorecard {
-  overflow: scroll;
   padding: 10px 0;
 
 }
 
 #scorecards .scorecard .scorecard-panel {
   padding: 5px 0;
-  overflow: scroll;
-  width: 775px;
+  overflow-x: auto;
+  width: 100%;
   background-color: #f8fbfe;
   -webkit-box-shadow: 0px 0px 3px 0px rgba(187,187,187,1);
   -moz-box-shadow: 0px 0px 3px 0px rgba(187,187,187,1);
   box-shadow: 0px 0px 3px 0px rgba(187,187,187,1);
-
 }
 
 #scorecards table {
   table-layout: fixed;
-  width: 500px;
   text-align: center;
+  width: 100%;
+  min-width: 550px;
   border-collapse: collapse;
 }
 
@@ -42,7 +41,7 @@
 
 #scorecards thead th,
 #scorecards tbody td {
-  width: 30px;
+  width: 4%;
   padding: 5px 5px;
 }
 

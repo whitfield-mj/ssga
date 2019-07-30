@@ -3,12 +3,37 @@ import PropTypes from "prop-types";
 
 Scorecard.propTypes = {
   courseName: PropTypes.string,
-  date: PropTypes.string
+  date: PropTypes.string,
+  courseHoles: PropTypes.objectOf(PropTypes.shape({ par: PropTypes.number })),
+  scores: PropTypes.objectOf(PropTypes.objectOf(PropTypes.number))
 };
 
 function Scorecard({ courseName, date, courseHoles, scores }) {
+  const holeNos = Object.keys(courseHoles);
   const dateObj = new Date(date);
-  const dateString = `${dateObj.getDay()}/${dateObj.getMonth()}/${dateObj.getFullYear()}`;
+  const dateString = `${dateObj.getDate()}/${dateObj.getMonth() +
+    1}/${dateObj.getFullYear()}`;
+  const prefix = `${courseName}-${dateString}`;
+
+  const holeParMap = holeNos.reduce((obj, hole) => {
+    return {
+      ...obj,
+      [hole]: courseHoles[hole].par
+    };
+  }, {});
+
+  function addTotals(player) {
+    const total = Object.values(scores[player]).reduce(
+      (sum, value) => sum + value,
+      0
+    );
+
+    return {
+      name: player,
+      total
+    };
+  }
+
   return (
     <div className="scorecard">
       <h2>{`${courseName} - ${dateString}`}</h2>
@@ -16,43 +41,45 @@ function Scorecard({ courseName, date, courseHoles, scores }) {
         <table>
           <thead>
             <tr>
-              <th scope="col">Hole</th>
-              {courseHoles
-                .map((value, hole) => <th key={hole}>{hole}</th>)
-                .toList()}
+              <th>Hole</th>
+              {holeNos.map(hole => (
+                <th key={`${prefix}-${hole}`}>{hole}</th>
+              ))}
               <th>Total</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Par</td>
-              {courseHoles
-                .map((value, hole) => <td key={hole}>{value.par}</td>)
-                .toList()}
-              <td>{courseHoles.reduce((sum, value) => sum + value.par, 0)}</td>
-            </tr>
-
-            {scores
-              .map((holeScores, player) => {
-                return (
-                  <tr key={player}>
-                    <td>{player}</td>
-                    {holeScores
-                      .map((score, hole) => <td key={hole}>{score}</td>)
-                      .toList()}
-                    <td>
-                      {" "}
-                      {holeScores.reduce((sum, value) => sum + value, 0)}{" "}
-                    </td>
-                  </tr>
-                );
-              })
-              .toList()}
-            <tr></tr>
+            <ScoreRow rowHeader="Par" scores={holeParMap} />
+            {Object.keys(scores)
+              .map(addTotals)
+              .sort((a, b) => a.total - b.total)
+              .map(player => (
+                <ScoreRow
+                  key={`${prefix}-${player.name}-scores`}
+                  rowHeader={player.name}
+                  scores={scores[player.name]}
+                  totalScore={player.score}
+                />
+              ))}
           </tbody>
         </table>
       </div>
     </div>
+  );
+}
+
+function ScoreRow({ rowHeader, scores, totalScore }) {
+  const total =
+    totalScore || Object.values(scores).reduce((sum, value) => sum + value, 0);
+
+  return (
+    <tr>
+      <td>{rowHeader}</td>
+      {Object.keys(scores).map(hole => (
+        <td key={`${rowHeader}-${hole}`}>{scores[hole]}</td>
+      ))}
+      <td>{total}</td>
+    </tr>
   );
 }
 

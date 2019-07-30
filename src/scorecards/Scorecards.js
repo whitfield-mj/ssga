@@ -1,26 +1,22 @@
 import React, { Component } from "react";
 import scores from "../data/scores";
+import courses from "../data/courses";
 import Scorecard from "./Scorecard";
 import "./scorecards.css";
-
-import PropTypes from "prop-types";
 
 class Scorecards extends Component {
   render() {
     return (
       <div id="scorecards">
-        {scores
-          .get("rounds")
-          .map((round, key) => (
-            <Scorecard
-              key={key}
-              courseName={round.get("course")}
-              courseHoles={scores.getIn(["courses", round.get("course")])}
-              date={key}
-              scores={round.get("scores")}
-            />
-          ))
-          .toList()}
+        {Object.keys(scores).map(roundDate => (
+          <Scorecard
+            key={roundDate}
+            courseName={scores[roundDate].course}
+            courseHoles={courses[scores[roundDate].course]}
+            date={roundDate}
+            scores={scores[roundDate].scores}
+          />
+        ))}
       </div>
     );
   }

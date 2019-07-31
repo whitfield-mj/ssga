@@ -28,10 +28,7 @@ function Scorecard({ courseName, date, courseHoles, scores }) {
       0
     );
 
-    return {
-      name: player,
-      total
-    };
+    return { name: player, total };
   }
 
   return (
@@ -58,7 +55,7 @@ function Scorecard({ courseName, date, courseHoles, scores }) {
                   key={`${prefix}-${player.name}-scores`}
                   rowHeader={player.name}
                   scores={scores[player.name]}
-                  totalScore={player.score}
+                  totalScore={player.total}
                 />
               ))}
           </tbody>

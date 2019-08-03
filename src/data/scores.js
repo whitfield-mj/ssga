@@ -65,7 +65,7 @@ export default {
     }
   },
   "2019-02-16": {
-    course: "Stickleholme",
+    course: "Sickleholme",
     scores: {
       Matt: {
         1: 8,

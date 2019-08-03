@@ -55,7 +55,7 @@ export default {
       par: 4
     }
   },
-  Stickleholme: {
+  Sickleholme: {
     1: {
       par: 4
     },

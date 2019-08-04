@@ -25,9 +25,9 @@ const scores = {
   },
   Pete: {
     1: 3,
-    2: 3,
-    3: 3,
-    4: 3
+    2: 5,
+    3: 6,
+    4: 4
   }
 };
 
@@ -60,11 +60,11 @@ describe("Scorecards", () => {
     ).toEqual("Total");
   });
 
-  it("renders a score row with pars", () => {
+  it("renders a par row", () => {
     const output = renderComponent();
-    const pars = output.find("ScoreRow").first();
+    const pars = output.find("ParRow");
     expect(pars.props().rowHeader).toEqual("Par");
-    expect(pars.props().scores).toEqual({
+    expect(pars.props().pars).toEqual({
       1: 4,
       2: 3,
       3: 5,
@@ -72,9 +72,9 @@ describe("Scorecards", () => {
     });
   });
 
-  it("renders a score row for pars and each player", () => {
+  it("renders a score row for each player", () => {
     const output = renderComponent();
-    expect(output.find("ScoreRow").length).toEqual(3);
+    expect(output.find("ScoreRow").length).toEqual(2);
   });
 
   it("renders score rows with lowest score first", () => {
@@ -82,7 +82,7 @@ describe("Scorecards", () => {
     expect(
       output
         .find("ScoreRow")
-        .at(1)
+        .at(0)
         .props().rowHeader
     ).toEqual("Pete");
     expect(
@@ -99,14 +99,33 @@ describe("Scorecards", () => {
     expect(
       output
         .find("ScoreRow")
-        .at(1)
+        .at(0)
         .props().totalScore
-    ).toEqual(12);
+    ).toEqual(18);
     expect(
       output
         .find("ScoreRow")
         .last()
         .props().totalScore
     ).toEqual(21);
+  });
+
+  it("adds a class for birdie, par, bogie etc", () => {
+    const output = renderComponent();
+    const peteRow = output
+      .find("ScoreRow")
+      .at(0)
+      .html();
+
+    console.log(
+      output
+        .find("ScoreRow")
+        .at(0)
+        .html()
+    );
+    expect(peteRow).toContain('class="birdie"><span>3</span>');
+    expect(peteRow).toContain('class="double"><span>5</span>');
+    expect(peteRow).toContain('class="bogie"><span>6</span>');
+    expect(peteRow).toContain('class="par"><span>4</span>');
   });
 });

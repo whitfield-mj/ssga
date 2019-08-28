@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import "./App.css";
 import Scorecards from "./scorecards/Scorecards";
 import Preferences from "./preferences/Preferences";
 import { ThemeProvider } from "styled-components";
 import theme from "./themes/theme";
+import * as S from "./styles";
 
 function App() {
-  const [highlighted, setHighlighted] = useState([]);
+  const [highlighted, setHighlighted] = useState([
+    "birdies",
+    "bogies",
+    "doubles",
+    "worse"
+  ]);
 
   const toggleHighlighted = scoreType => {
     if (highlighted.includes(scoreType))
@@ -18,13 +23,13 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div id="app">
-        <header id="app-header">
+        <S.Header id="app-header">
           <h1>SSGA</h1>
-        </header>
+        </S.Header>
         <Preferences onSelect={toggleHighlighted} selected={highlighted} />
-        <div id="main-content">
+        <S.Content>
           <Scorecards highlighted={highlighted} />
-        </div>
+        </S.Content>
       </div>
     </ThemeProvider>
   );

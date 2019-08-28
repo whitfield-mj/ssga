@@ -1,12 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import scores from "../data/scores";
 import courses from "../data/courses";
 import Scorecard from "./Scorecard";
-import "./scorecards.css";
 
 function Scorecards({ highlighted }) {
   return (
-    <div id="scorecards">
+    <Fragment>
       {Object.keys(scores).map(roundDate => (
         <Scorecard
           key={roundDate}
@@ -17,7 +16,7 @@ function Scorecards({ highlighted }) {
           highlighted={highlighted}
         />
       ))}
-    </div>
+    </Fragment>
   );
 }
 

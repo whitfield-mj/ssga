@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import * as S from "./styles";
 
 function Scorecard({ courseName, date, courseHoles, scores, highlighted }) {
   const holeNos = Object.keys(courseHoles);
@@ -25,9 +26,9 @@ function Scorecard({ courseName, date, courseHoles, scores, highlighted }) {
   }
 
   return (
-    <div className="scorecard">
+    <S.Scorecard>
       <h2>{`${courseName} - ${dateString}`}</h2>
-      <div className="scorecard-panel">
+      <S.ScorecardPanel>
         <table>
           <thead>
             <tr>
@@ -55,8 +56,8 @@ function Scorecard({ courseName, date, courseHoles, scores, highlighted }) {
               ))}
           </tbody>
         </table>
-      </div>
-    </div>
+      </S.ScorecardPanel>
+    </S.Scorecard>
   );
 }
 
@@ -100,21 +101,27 @@ function ScoreRow({ rowHeader, scores, totalScore, holePars, highlighted }) {
 
 function HoleScore({ score, par, highlighted }) {
   const interestList = highlighted || [];
-  const label = () => {
-    const difference = par - score;
-    if (difference === 1 && interestList.includes("birdies")) return "birdie";
-    if (difference === -1 && interestList.includes("bogies")) return "bogie";
-    if (difference === -2 && interestList.includes("doubles")) return "double";
-    if (difference < -2 && interestList.includes("worse")) return "double";
 
-    return "par";
+  const showScore = (score, difference) => {
+    if (difference === 1 && interestList.includes("birdies"))
+      return <S.birdie highlight={{}}>{score}</S.birdie>;
+
+    if (difference === -1 && interestList.includes("bogies"))
+      return <S.bogie>{score}</S.bogie>;
+
+    if (difference === -2 && interestList.includes("doubles"))
+      return <S.double>{score}</S.double>;
+
+    if (difference < -2 && interestList.includes("worse"))
+      return <S.worse>{score}</S.worse>;
+
+    if (difference === 0 && interestList.includes("pars"))
+      return <S.par>{score}</S.par>;
+
+    return <span>{score}</span>;
   };
 
-  return (
-    <td className={label()}>
-      <span>{score}</span>
-    </td>
-  );
+  return <td>{showScore(score, par - score)}</td>;
 }
 
 export default Scorecard;

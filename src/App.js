@@ -6,12 +6,7 @@ import theme from "./themes/theme";
 import * as S from "./styles";
 
 function App() {
-  const [highlighted, setHighlighted] = useState([
-    "birdies",
-    "bogies",
-    "doubles",
-    "worse"
-  ]);
+  const [highlighted, setHighlighted] = useState([]);
 
   const toggleHighlighted = scoreType => {
     if (highlighted.includes(scoreType))

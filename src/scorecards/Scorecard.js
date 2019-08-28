@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Scorecard({ courseName, date, courseHoles, scores }) {
+function Scorecard({ courseName, date, courseHoles, scores, highlighted }) {
   const holeNos = Object.keys(courseHoles);
   const dateObj = new Date(date);
   const dateString = `${dateObj.getDate()}/${dateObj.getMonth() +
@@ -50,6 +50,7 @@ function Scorecard({ courseName, date, courseHoles, scores }) {
                   scores={scores[player.name]}
                   totalScore={player.total}
                   holePars={holeParMap}
+                  highlighted={highlighted}
                 />
               ))}
           </tbody>
@@ -80,7 +81,7 @@ function ParRow({ rowHeader, pars }) {
   );
 }
 
-function ScoreRow({ rowHeader, scores, totalScore, holePars }) {
+function ScoreRow({ rowHeader, scores, totalScore, holePars, highlighted }) {
   return (
     <tr>
       <td>{rowHeader}</td>
@@ -89,6 +90,7 @@ function ScoreRow({ rowHeader, scores, totalScore, holePars }) {
           key={`${rowHeader}-${hole}`}
           score={scores[hole]}
           par={holePars[hole]}
+          highlighted={highlighted}
         />
       ))}
       <td>{totalScore}</td>
@@ -96,13 +98,14 @@ function ScoreRow({ rowHeader, scores, totalScore, holePars }) {
   );
 }
 
-function HoleScore({ score, par }) {
+function HoleScore({ score, par, highlighted }) {
+  const interestList = highlighted || [];
   const label = () => {
     const difference = par - score;
-    if (difference === 1) return "birdie";
-    if (difference > 1) return "eagle";
-    if (difference === -1) return "bogie";
-    if (difference < -1) return "double";
+    if (difference === 1 && interestList.includes("birdies")) return "birdie";
+    if (difference === -1 && interestList.includes("bogies")) return "bogie";
+    if (difference === -2 && interestList.includes("doubles")) return "double";
+    if (difference < -2 && interestList.includes("worse")) return "double";
 
     return "par";
   };

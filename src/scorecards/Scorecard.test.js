@@ -31,13 +31,16 @@ const scores = {
   }
 };
 
-function renderComponent() {
+function renderComponent({
+  highlighted = ["birdies", "bogies", "doubles", "worse"]
+} = {}) {
   return shallow(
     <Scorecard
       courseName="Tinsley"
       date="2019-03-12"
       courseHoles={holes}
       scores={scores}
+      highlighted={highlighted}
     />
   );
 }
@@ -127,5 +130,23 @@ describe("Scorecards", () => {
     expect(peteRow).toContain('class="double"><span>5</span>');
     expect(peteRow).toContain('class="bogie"><span>6</span>');
     expect(peteRow).toContain('class="par"><span>4</span>');
+  });
+
+  it("doesn't add a class for birdie, par, bogie etc if not highlighted", () => {
+    const output = renderComponent({ highlighted: [] });
+    const peteRow = output
+      .find("ScoreRow")
+      .at(0)
+      .html();
+
+    console.log(
+      output
+        .find("ScoreRow")
+        .at(0)
+        .html()
+    );
+    expect(peteRow).not.toContain('class="birdie"><span>3</span>');
+    expect(peteRow).not.toContain('class="double"><span>5</span>');
+    expect(peteRow).not.toContain('class="bogie"><span>6</span>');
   });
 });

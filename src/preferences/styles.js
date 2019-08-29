@@ -39,16 +39,16 @@ export const Cog = styled.div`
 `;
 
 export const Overlay = styled.div`
-  height: 100%;
-  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: scroll;
   z-index: 1;
   background-color: #080f5b;
   text-align: center;
   color: white;
-  overflow: wrap;
   padding-top: 32px;
 
   h2 {

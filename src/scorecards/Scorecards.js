@@ -1,25 +1,37 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import Scorecard from "./Scorecard";
+
 import scores from "../data/scores";
 import courses from "../data/courses";
-import Scorecard from "./Scorecard";
+import getOrderedScorecardData from "../data/selectors/getOrderedScores";
 
 function Scorecards({ highlighted }) {
   return (
     <Fragment>
-      {Object.keys(scores).map(roundDate => (
-        <Scorecard
-          key={roundDate}
-          courseName={scores[roundDate].course}
-          courseHoles={courses[scores[roundDate].course]}
-          date={roundDate}
-          scores={scores[roundDate].scores}
-          highlighted={highlighted}
-        />
-      ))}
+      {Object.keys(scores).map(roundDate => {
+        const dateObj = new Date(roundDate);
+        const dateString = `${dateObj.getDate()}/${dateObj.getMonth() +
+          1}/${dateObj.getFullYear()}`;
+
+        const coursePlayed = courses[scores[roundDate].course];
+        const roundScores = scores[roundDate].scores;
+        return (
+          <Scorecard
+            key={roundDate}
+            date={dateString}
+            course={coursePlayed}
+            scorecardData={getOrderedScorecardData(roundScores, coursePlayed)}
+            highlighted={highlighted}
+          />
+        );
+      })}
     </Fragment>
   );
 }
 
-Scorecards.propTypes = {};
+Scorecards.propTypes = {
+  highlighted: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 export default Scorecards;

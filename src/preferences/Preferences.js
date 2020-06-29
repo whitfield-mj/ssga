@@ -21,29 +21,29 @@ function Preferences({ onSelect, selected }) {
             <S.PanelContainer>
               <h2>Highlight</h2>
               <S.Button
-                onClick={() => onSelect("birdies")}
-                selected={selected.includes("birdies")}
+                onClick={() => onSelect("birdie")}
+                selected={selected.includes("birdie")}
               >
                 Birdies
               </S.Button>
 
               <S.Button
-                onClick={() => onSelect("pars")}
-                selected={selected.includes("pars")}
+                onClick={() => onSelect("par")}
+                selected={selected.includes("par")}
               >
                 Pars
               </S.Button>
 
               <S.Button
-                onClick={() => onSelect("bogies")}
-                selected={selected.includes("bogies")}
+                onClick={() => onSelect("bogie")}
+                selected={selected.includes("bogie")}
               >
                 Bogies
               </S.Button>
 
               <S.Button
-                onClick={() => onSelect("doubles")}
-                selected={selected.includes("doubles")}
+                onClick={() => onSelect("double")}
+                selected={selected.includes("double")}
               >
                 Doubles
               </S.Button>

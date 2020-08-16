@@ -1,5 +1,5 @@
 export default {
-  Beaucheif: {
+  Beauchief: {
     1: {
       par: 4
     },

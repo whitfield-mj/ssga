@@ -1,6 +1,6 @@
 export default {
   "2020-08-16": {
-    course: "Beaucheif",
+    course: "Beauchief",
     scores: {
       Stu: {
         1: 5,

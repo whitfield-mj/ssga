@@ -2,7 +2,7 @@ export default {
   "2020-08-16": {
     course: "Beauchief",
     scores: {
-      Stu: {
+      5: {
         1: 5,
         2: 4,
         3: 6,
@@ -22,7 +22,7 @@ export default {
         17: 4,
         18: 6
       },
-      Matt: {
+      1: {
         1: 5,
         2: 5,
         3: 7,
@@ -42,7 +42,7 @@ export default {
         17: 3,
         18: 8
       },
-      Mark: {
+      4: {
         1: 3,
         2: 4,
         3: 7,
@@ -62,7 +62,7 @@ export default {
         17: 7,
         18: 6
       },
-      Willan: {
+      6: {
         1: 5,
         2: 5,
         3: 9,
@@ -87,7 +87,7 @@ export default {
   "2020-06-28": {
     course: "Tinsley",
     scores: {
-      Stu: {
+      5: {
         1: 6,
         2: 6,
         3: 6,
@@ -107,7 +107,7 @@ export default {
         17: 6,
         18: 7
       },
-      Simon: {
+      3: {
         1: 4,
         2: 5,
         3: 8,
@@ -127,7 +127,7 @@ export default {
         17: 4,
         18: 5
       },
-      Pete: {
+      2: {
         1: 6,
         2: 5,
         3: 7,
@@ -147,7 +147,7 @@ export default {
         17: 5,
         18: 5
       },
-      Willan: {
+      6: {
         1: 7,
         2: 7,
         3: 8,
@@ -172,7 +172,7 @@ export default {
   "2019-08-03": {
     course: "Allerton",
     scores: {
-      Mark: {
+      4: {
         1: 6,
         2: 5,
         3: 7,
@@ -192,7 +192,7 @@ export default {
         17: 7,
         18: 6
       },
-      Pete: {
+      2: {
         1: 6,
         2: 7,
         3: 5,
@@ -212,7 +212,7 @@ export default {
         17: 4,
         18: 6
       },
-      Simon: {
+      3: {
         1: 6,
         2: 4,
         3: 6,
@@ -232,7 +232,7 @@ export default {
         17: 5,
         18: 5
       },
-      Matt: {
+      1: {
         1: 6,
         2: 6,
         3: 7,
@@ -257,7 +257,7 @@ export default {
   "2019-06-22": {
     course: "Tinsley",
     scores: {
-      Matt: {
+      1: {
         1: 7,
         2: 4,
         3: 5,
@@ -277,7 +277,7 @@ export default {
         17: 4,
         18: 4
       },
-      Mark: {
+      4: {
         1: 7,
         2: 6,
         3: 8,
@@ -297,7 +297,7 @@ export default {
         17: 5,
         18: 5
       },
-      Pete: {
+      2: {
         1: 7,
         2: 6,
         3: 6,
@@ -322,7 +322,7 @@ export default {
   "2019-02-16": {
     course: "Sickleholme",
     scores: {
-      Matt: {
+      1: {
         1: 8,
         2: 5,
         3: 5,
@@ -342,7 +342,7 @@ export default {
         17: 6,
         18: 4
       },
-      Pete: {
+      2: {
         1: 5,
         2: 7,
         3: 7,
@@ -362,7 +362,7 @@ export default {
         17: 7,
         18: 4
       },
-      Simon: {
+      3: {
         1: 6,
         2: 4,
         3: 7,
@@ -382,7 +382,7 @@ export default {
         17: 6,
         18: 3
       },
-      Stu: {
+      5: {
         1: 7,
         2: 6,
         3: 7,
@@ -407,7 +407,7 @@ export default {
   "2018-11-24": {
     course: "Allerton",
     scores: {
-      Mark: {
+      4: {
         1: 6,
         2: 5,
         3: 7,
@@ -427,7 +427,7 @@ export default {
         17: 8,
         18: 4
       },
-      Pete: {
+      2: {
         1: 5,
         2: 6,
         3: 6,
@@ -447,7 +447,7 @@ export default {
         17: 4,
         18: 4
       },
-      Simon: {
+      3: {
         1: 5,
         2: 6,
         3: 6,
@@ -472,7 +472,7 @@ export default {
   "2017-02-01": {
     course: "Chapel-en-le-Frith",
     scores: {
-      Mark: {
+      4: {
         1: 5,
         2: 6,
         3: 6,
@@ -492,7 +492,7 @@ export default {
         17: 7,
         18: 7
       },
-      Pete: {
+      2: {
         1: 5,
         2: 6,
         3: 8,
@@ -512,7 +512,7 @@ export default {
         17: 6,
         18: 6
       },
-      Simon: {
+      3: {
         1: 4,
         2: 6,
         3: 5,
@@ -532,7 +532,7 @@ export default {
         17: 5,
         18: 6
       },
-      Matt: {
+      1: {
         1: 6,
         2: 6,
         3: 4,

@@ -2,58 +2,36 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as S from "./styles";
 
-function Scorecard({ courseName, date, courseHoles, scores, highlighted }) {
-  const holeNos = Object.keys(courseHoles);
-  const dateObj = new Date(date);
-  const dateString = `${dateObj.getDate()}/${dateObj.getMonth() +
-    1}/${dateObj.getFullYear()}`;
-  const prefix = `${courseName}-${dateString}`;
-
-  const holeParMap = holeNos.reduce((obj, hole) => {
-    return {
-      ...obj,
-      [hole]: courseHoles[hole].par
-    };
-  }, {});
-
-  function addTotals(player) {
-    const total = Object.values(scores[player]).reduce(
-      (sum, value) => sum + value,
-      0
-    );
-
-    return { name: player, total };
-  }
-
+function Scorecard({ date, course, scorecardData, highlighted }) {
+  const prefix = `${course.name}-${date}`;
   return (
     <S.Scorecard>
-      <h2>{`${courseName} - ${dateString}`}</h2>
+      <h2>{`${course.name} - ${date}`}</h2>
       <S.ScorecardPanel>
         <table>
           <thead>
             <tr>
               <th>Hole</th>
-              {holeNos.map(hole => (
-                <th key={`${prefix}-${hole}`}>{hole}</th>
+              {course.holes.map((hole, index) => (
+                <th key={`${prefix}-${index}`}>{hole.par}</th>
               ))}
               <th>Total</th>
             </tr>
           </thead>
           <tbody>
-            <ParRow rowHeader="Par" pars={holeParMap} />
-            {Object.keys(scores)
-              .map(addTotals)
-              .sort((a, b) => a.total - b.total)
-              .map(player => (
+            <ParRow rowHeader="Par" holes={course.holes} par={course.par} />
+
+            {scorecardData.map(playerScore => {
+              return (
                 <ScoreRow
-                  key={`${prefix}-${player.name}-scores`}
-                  rowHeader={player.name}
-                  scores={scores[player.name]}
-                  totalScore={player.total}
-                  holePars={holeParMap}
+                  key={`${prefix}-${playerScore.player.name}-scores`}
+                  rowHeader={playerScore.player.name}
+                  scores={playerScore.scores}
+                  totalScore={playerScore.total}
                   highlighted={highlighted}
                 />
-              ))}
+              );
+            })}
           </tbody>
         </table>
       </S.ScorecardPanel>
@@ -62,66 +40,69 @@ function Scorecard({ courseName, date, courseHoles, scores, highlighted }) {
 }
 
 Scorecard.propTypes = {
-  courseName: PropTypes.string,
-  date: PropTypes.string,
-  courseHoles: PropTypes.objectOf(PropTypes.shape({ par: PropTypes.number })),
-  scores: PropTypes.objectOf(PropTypes.objectOf(PropTypes.number))
+  date: PropTypes.string.isRequired,
+  course: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    holes: PropTypes.arrayOf(
+      PropTypes.shape({ par: PropTypes.number.isRequired })
+    ),
+    par: PropTypes.number.isRequired
+  }).isRequired,
+  scorecardData: PropTypes.arrayOf(
+    PropTypes.shape({
+      player: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired
+      }),
+      scores: PropTypes.arrayOf(
+        PropTypes.shape({
+          score: PropTypes.number,
+          scoreType: PropTypes.string
+        })
+      ),
+      total: PropTypes.number
+    }).isRequired
+  ),
+  highlighted: PropTypes.arrayOf(PropTypes.string)
 };
 
-function ParRow({ rowHeader, pars }) {
-  const total = Object.values(pars).reduce((sum, value) => sum + value, 0);
-
+function ParRow({ rowHeader, holes, par }) {
   return (
     <tr>
       <td>{rowHeader}</td>
-      {Object.keys(pars).map(hole => (
-        <HoleScore key={`${rowHeader}-${hole}`} score={pars[hole]} />
+      {holes.map((hole, index) => (
+        <td key={`${rowHeader}-${index}`}>{hole.par}</td>
       ))}
-      <td>{total}</td>
+      <td>{par}</td>
     </tr>
   );
 }
 
-function ScoreRow({ rowHeader, scores, totalScore, holePars, highlighted }) {
+function ScoreRow({ rowHeader, scores, totalScore, highlighted }) {
+  const scoreComponent = (scoreType, score) => {
+    const options = {
+      birdie: <S.birdie>{score}</S.birdie>,
+      par: <S.par>{score}</S.par>,
+      bogie: <S.bogie>{score}</S.bogie>,
+      double: <S.double>{score}</S.double>,
+      worse: <S.worse>{score}</S.worse>
+    };
+    return highlighted.includes(scoreType) ? (
+      options[scoreType]
+    ) : (
+      <span>{score}</span>
+    );
+  };
+
   return (
     <tr>
       <td>{rowHeader}</td>
-      {Object.keys(scores).map(hole => (
-        <HoleScore
-          key={`${rowHeader}-${hole}`}
-          score={scores[hole]}
-          par={holePars[hole]}
-          highlighted={highlighted}
-        />
+      {scores.map((hole, index) => (
+        <td key={index}>{scoreComponent(hole.scoreType, hole.score)}</td>
       ))}
       <td>{totalScore}</td>
     </tr>
   );
-}
-
-function HoleScore({ score, par, highlighted }) {
-  const interestList = highlighted || [];
-
-  const showScore = (score, difference) => {
-    if (difference === 1 && interestList.includes("birdies"))
-      return <S.birdie highlight={{}}>{score}</S.birdie>;
-
-    if (difference === -1 && interestList.includes("bogies"))
-      return <S.bogie>{score}</S.bogie>;
-
-    if (difference === -2 && interestList.includes("doubles"))
-      return <S.double>{score}</S.double>;
-
-    if (difference < -2 && interestList.includes("worse"))
-      return <S.worse>{score}</S.worse>;
-
-    if (difference === 0 && interestList.includes("pars"))
-      return <S.par>{score}</S.par>;
-
-    return <span>{score}</span>;
-  };
-
-  return <td>{showScore(score, par - score)}</td>;
 }
 
 export default Scorecard;

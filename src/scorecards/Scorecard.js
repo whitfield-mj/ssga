@@ -6,7 +6,7 @@ function Scorecard({ date, course, scorecardData, highlighted }) {
   const prefix = `${course.name}-${date}`;
   return (
     <S.Scorecard>
-      <h2>{`${course.name} - ${date}`}</h2>
+      <h3>{`${course.name} - ${date}`}</h3>
       <S.ScorecardPanel>
         <table>
           <thead>

@@ -99,7 +99,7 @@ describe("Scorecards", () => {
 
     expect(sc2.props().scorecardData).toEqual([
       {
-        player: { id: 1, name: "Matt" },
+        player: { id: 1, name: "Matt", initials: "MW" },
         scores: [
           { score: 7, scoreType: "worse" },
           { score: 4, scoreType: "bogie" },

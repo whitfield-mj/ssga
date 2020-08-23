@@ -1,26 +1,32 @@
 export default [
   {
     id: 1,
-    name: "Matt"
+    name: "Matt",
+    initials: "MW"
   },
   {
     id: 2,
-    name: "Pete"
+    name: "Pete",
+    initials: "PF"
   },
   {
     id: 3,
-    name: "Simon"
+    name: "Simon",
+    initials: "SE"
   },
   {
     id: 4,
-    name: "Mark"
+    name: "Mark",
+    initials: "MP"
   },
   {
     id: 5,
-    name: "Stu"
+    name: "Stu",
+    initials: "SW"
   },
   {
     id: 6,
-    name: "Willan"
+    name: "Willan",
+    initials: "AW"
   }
 ];

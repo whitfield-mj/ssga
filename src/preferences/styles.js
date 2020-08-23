@@ -26,12 +26,12 @@ export const WhiteClose = styled.div`
 
 export const Cog = styled.div`
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   position: absolute;
   right: 10px;
-  padding-top: 10px;
-  opacity: 0.5;
+  margin-top: -40px;
+  opacity: 0.3;
   img {
     max-width: 100%;
     max-height: 100%;

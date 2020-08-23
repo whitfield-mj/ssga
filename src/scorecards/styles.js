@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Scorecard = styled.div`
   padding: 10px 0;
 
-  h2 {
+  h3 {
+    color: ${props => props.theme.colours.dark}
     padding: 5px 0 10px;
     margin: 0;
     font-weight: normal;
@@ -25,6 +26,7 @@ export const ScorecardPanel = styled.div`
     width: 100%;
     min-width: 700px;
     border-collapse: collapse;
+    color: ${props => props.theme.colours.dark};
   }
 
   thead th {

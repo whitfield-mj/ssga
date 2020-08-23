@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Scorecards from "./scorecards/Scorecards";
+import Players from "./players/Players";
 import Preferences from "./preferences/Preferences";
 import { ThemeProvider } from "styled-components";
 import theme from "./themes/theme";
 import * as S from "./styles";
+import Segment from "./layout/Segment";
 
 function App() {
   const [highlighted, setHighlighted] = useState([]);
@@ -21,9 +23,14 @@ function App() {
         <S.Header id="app-header">
           <h1>SSGA</h1>
         </S.Header>
-        <Preferences onSelect={toggleHighlighted} selected={highlighted} />
         <S.Content>
-          <Scorecards highlighted={highlighted} />
+          <Segment>
+            <Players />
+          </Segment>
+          <Segment title={"Rounds"}>
+            <Preferences onSelect={toggleHighlighted} selected={highlighted} />
+            <Scorecards highlighted={highlighted} />
+          </Segment>
         </S.Content>
       </div>
     </ThemeProvider>

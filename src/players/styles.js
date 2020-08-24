@@ -37,9 +37,24 @@ export const PlayerStatsPanel = styled.div`
 
 export const Stats = styled.div`
   margin: 0 10px;
-  div {
-    &:nth-child(2) {
-      font-size 12px; 
-    } 
-  } 
+  flex-grow: 1;
+`;
+
+export const MainStats = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
+
+export const AverageScore = styled.div`
+  flex-grow: 1;
+  padding-bottom: 5px;
+`;
+
+export const AverageOver = styled.div`
+  font-size 12px; 
+`;
+
+export const LatestRound = styled.div`
+  font-size 12px; 
 `;

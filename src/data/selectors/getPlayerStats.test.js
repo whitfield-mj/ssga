@@ -1,16 +1,17 @@
 import getPlayerStats from "./getPlayerStats";
 import fullScoresMock from "./testData/fullScoresMock";
 import players from "../players";
+import courses from "../courses";
 
 describe("getPlayerStats", () => {
   it("should return array containing each player", () => {
-    const output = getPlayerStats(players, fullScoresMock);
+    const output = getPlayerStats(players, fullScoresMock, courses);
 
     expect(output.length).toEqual(6);
   });
 
   it("should order by average score", () => {
-    const output = getPlayerStats(players, fullScoresMock);
+    const output = getPlayerStats(players, fullScoresMock, courses);
 
     expect(output[0].name).toEqual("Matt");
     expect(output[1].name).toEqual("Stu");
@@ -27,19 +28,21 @@ describe("getPlayerStats", () => {
     ${"medianScore"}  | ${89}
     ${"minScore"}     | ${85}
     ${"maxScore"}     | ${98}
+    ${"averageOver"}  | ${21}
   `("The value for $stat should be $value", ({ stat, value }) => {
-    const output = getPlayerStats(players, fullScoresMock);
+    const output = getPlayerStats(players, fullScoresMock, courses);
 
     expect(output[0][stat]).toEqual(value);
   });
 
   it("should return the latest round details", () => {
-    const output = getPlayerStats(players, fullScoresMock);
+    const output = getPlayerStats(players, fullScoresMock, courses);
 
     expect(output[0].latestScore).toEqual({
       course: "Beauchief",
       score: 89,
-      date: "2020-08-16"
+      date: "2020-08-16",
+      overPar: 22
     });
   });
 });

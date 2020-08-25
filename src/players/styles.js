@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import respondTo from '../themes/breakPoints';
 
 export const Badge = styled.div`
   width: 45px;
@@ -33,6 +34,19 @@ export const PlayerStatsPanel = styled.div`
   &:nth-of-type(odd) {
     margin-right: 5px;
   }
+
+  ${respondTo.md`
+    flex: 30%;
+    flex-grow: 1
+    &:nth-of-type(3n + 2) {
+      margin-left: 10px;
+      margin-right: 10px;
+    } 
+    &:not(:nth-of-type(3n + 2)) {
+      margin-left: 0px;
+      margin-right: 0px;
+    } 
+  `}
 `;
 
 export const Stats = styled.div`
@@ -52,9 +66,12 @@ export const AverageScore = styled.div`
 `;
 
 export const AverageOver = styled.div`
-  font-size 12px; 
+  font-size: 0.6em;
+  ${respondTo.sm`
+     font-size 1em; 
+  `}
 `;
 
 export const LatestRound = styled.div`
-  font-size 12px; 
+  font-size 0.6em; 
 `;

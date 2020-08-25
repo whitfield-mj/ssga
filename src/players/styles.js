@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import respondTo from '../themes/breakPoints';
+import styled from "styled-components";
+import respondTo from "../themes/breakPoints";
 
 export const Badge = styled.div`
   width: 45px;

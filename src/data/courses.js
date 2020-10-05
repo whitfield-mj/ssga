@@ -1,6 +1,66 @@
 export default {
+  'Davyhulme Park': {
+    name: 'Davyhulme Park',
+    holes: [
+      {
+        par: 3
+      },
+      {
+        par: 5
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 5
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 3
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 5
+      },
+      {
+        par: 3
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 3
+      },
+      {
+        par: 5
+      }
+    ],
+    par: 72
+  },
   Beauchief: {
-    name: "Beauchief",
+    name: 'Beauchief',
     holes: [
       {
         par: 4
@@ -60,7 +120,7 @@ export default {
     par: 67
   },
   Tinsley: {
-    name: "Tinsley",
+    name: 'Tinsley',
     holes: [
       {
         par: 4
@@ -120,7 +180,7 @@ export default {
     par: 70
   },
   Sickleholme: {
-    name: "Sickleholme",
+    name: 'Sickleholme',
     holes: [
       {
         par: 4
@@ -180,7 +240,7 @@ export default {
     par: 69
   },
   Allerton: {
-    name: "Allerton",
+    name: 'Allerton',
     holes: [
       {
         par: 4
@@ -239,8 +299,8 @@ export default {
     ],
     par: 67
   },
-  "Chapel-en-le-Frith": {
-    name: "Chapel-en-le-Frith",
+  'Chapel-en-le-Frith': {
+    name: 'Chapel-en-le-Frith',
     holes: [
       {
         par: 4

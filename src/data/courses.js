@@ -1,4 +1,64 @@
 export default {
+  "Davyhulme Park": {
+    name: "Davyhulme Park",
+    holes: [
+      {
+        par: 3
+      },
+      {
+        par: 5
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 5
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 3
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 5
+      },
+      {
+        par: 3
+      },
+      {
+        par: 4
+      },
+      {
+        par: 4
+      },
+      {
+        par: 3
+      },
+      {
+        par: 5
+      }
+    ],
+    par: 72
+  },
   Beauchief: {
     name: "Beauchief",
     holes: [

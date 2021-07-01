@@ -1,7 +1,74 @@
 export default {
-  "2020-10-04": {
-    course: "Davyhulme Park",
-    date: "2020-10-04",
+  '2021-06-19': {
+    course: 'Beauchief',
+    date: '2021-06-19',
+    scores: {
+      1: {
+        1: 6,
+        2: 3,
+        3: 6,
+        4: 3,
+        5: 7,
+        6: 4,
+        7: 5,
+        8: 4,
+        9: 5,
+        10: 5,
+        11: 6,
+        12: 5,
+        13: 6,
+        14: 4,
+        15: 5,
+        16: 5,
+        17: 7,
+        18: 4
+      },
+      4: {
+        1: 6,
+        2: 4,
+        3: 8,
+        4: 2,
+        5: 7,
+        6: 3,
+        7: 6,
+        8: 5,
+        9: 3,
+        10: 8,
+        11: 4,
+        12: 4,
+        13: 5,
+        14: 7,
+        15: 4,
+        16: 5,
+        17: 5,
+        18: 7
+      },
+      2: {
+        1: 7,
+        2: 3,
+        3: 7,
+        4: 6,
+        5: 4,
+        6: 5,
+        7: 5,
+        8: 7,
+        9: 4,
+        10: 6,
+        11: 4,
+        12: 6,
+        13: 9,
+        14: 4,
+        15: 4,
+        16: 6,
+        17: 5,
+        18: 6
+      }
+    },
+    notes: 'Strong round from Pipe. Questionable drive style utilised'
+  },
+  '2020-10-04': {
+    course: 'Davyhulme Park',
+    date: '2020-10-04',
     scores: {
       6: {
         1: 4,
@@ -84,11 +151,11 @@ export default {
         18: 7
       }
     },
-    notes: "Winter greens. Curiously good scores."
+    notes: 'Winter greens. Curiously good scores.'
   },
-  "2020-08-16": {
-    course: "Beauchief",
-    date: "2020-08-16",
+  '2020-08-16': {
+    course: 'Beauchief',
+    date: '2020-08-16',
     scores: {
       5: {
         1: 5,
@@ -172,9 +239,9 @@ export default {
       }
     }
   },
-  "2020-06-28": {
-    course: "Tinsley",
-    date: "2020-06-28",
+  '2020-06-28': {
+    course: 'Tinsley',
+    date: '2020-06-28',
     scores: {
       5: {
         1: 6,
@@ -258,11 +325,11 @@ export default {
       }
     },
     notes:
-      "Full of controversy. Stu lost ball - took free drop. No bunkers in play. Willan controversial drops. Willan miss first tee shot. Mulligans off tees"
+      'Full of controversy. Stu lost ball - took free drop. No bunkers in play. Willan controversial drops. Willan miss first tee shot. Mulligans off tees'
   },
-  "2019-08-03": {
-    course: "Allerton",
-    date: "2019-08-03",
+  '2019-08-03': {
+    course: 'Allerton',
+    date: '2019-08-03',
     scores: {
       4: {
         1: 6,
@@ -346,9 +413,9 @@ export default {
       }
     }
   },
-  "2019-06-22": {
-    course: "Tinsley",
-    date: "2019-06-22",
+  '2019-06-22': {
+    course: 'Tinsley',
+    date: '2019-06-22',
     scores: {
       1: {
         1: 7,
@@ -412,9 +479,9 @@ export default {
       }
     }
   },
-  "2019-02-16": {
-    course: "Sickleholme",
-    date: "2019-02-16",
+  '2019-02-16': {
+    course: 'Sickleholme',
+    date: '2019-02-16',
     scores: {
       1: {
         1: 8,
@@ -498,9 +565,9 @@ export default {
       }
     }
   },
-  "2018-11-24": {
-    course: "Allerton",
-    date: "2018-11-24",
+  '2018-11-24': {
+    course: 'Allerton',
+    date: '2018-11-24',
     scores: {
       4: {
         1: 6,
@@ -564,9 +631,9 @@ export default {
       }
     }
   },
-  "2017-02-01": {
-    course: "Chapel-en-le-Frith",
-    date: "2017-02-01",
+  '2017-02-01': {
+    course: 'Chapel-en-le-Frith',
+    date: '2017-02-01',
     scores: {
       4: {
         1: 5,
